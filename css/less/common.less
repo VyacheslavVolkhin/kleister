@@ -1,0 +1,126 @@
+/* ----------------------------------- *\
+		common styles
+\* ----------------------------------- */
+@-webkit-keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+.i {
+	display: inline-block;
+	vertical-align: middle;
+	transition: none;
+}
+.js-bg-box {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	.js-bg-photo {
+		display: block;
+		position: absolute;
+		top: 0;left: 0;
+		width: 100%;height: 100%;
+		object-fit: cover;
+	}
+	img:not(.js-bg-photo) {
+		display: block;
+		width: 100%;
+		position: absolute;
+		top: 0;left: 0;
+	}
+}
+.js-btn-toggle.active+.js-popup-block {display: block !important;}
+.js-popup-block {-webkit-animation: fadein ease 0.3s;animation: fadein ease 0.3s;}
+.js-tab-block {
+	display: none;
+	animation: fadein ease 0.2s;
+	&.active {
+		display: block;
+	}
+}
+.items-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+	min-width: 100%;
+    margin: 0 -10px;
+    .items-wrap {
+        min-height: 100%;
+        .item-wrap {
+            width: 100%;
+            margin-bottom: 0;
+        }
+    }
+}
+.item-wrap {
+	width: 100%;
+	position: relative;
+	break-inside: avoid-column;
+	display: block;
+	animation: fadein ease 0.2s;
+    margin-bottom: 40px;
+    padding: 0 10px;
+    &.wrap-strech {
+        width: auto;
+        flex: 1;
+    }
+	&.wrap-more {
+		&~.item-wrap {
+			display: none;
+		}
+		&.active {
+			display: none;
+			&~.item-wrap {
+				display: block;
+			}
+		}
+	}
+}
+@media (max-width: 1023px) {
+	.elm-hidden-mobile {
+		display: none;
+	}
+}
+@media (min-width: 768px) {
+    .item-wrap {
+        width: 50%;
+    }
+}
+@media (min-width: 1024px) {
+	.elm-hidden-desktop {
+		display: none;
+	}
+    .item-wrap {
+        width: 33.33%;
+        margin-bottom: 20px;
+        &.wrap-2 {
+            width: 66.66%;
+        }
+        &.wrap-full {
+            width: 100%;
+        }
+    }
+    .items-wrap {
+        .items-wrap {
+            margin-bottom: -20px;
+        }
+    }
+}
+@media (min-width: 1200px) {
+
+}
+@media (min-width: 1600px) {
+    .item-wrap {
+        width: 25%;
+        &.wrap-2 {
+            width: 50%;
+        }
+        &.wrap-full {
+            width: 100%;
+        }
+    }
+}
