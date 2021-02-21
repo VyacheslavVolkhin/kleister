@@ -135,6 +135,9 @@ h6, .h6-title {
 .title-att {
     color: var(--clr-second);
 }
+.title-light {
+    color: fade(#000, 20);
+}
 .subtitle-main,
 .subtitle-medium {
     display: block;
@@ -181,4 +184,37 @@ h6, .h6-title {
 }
 .text-left {
     text-align: left;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    line-height: 15px;
+    border: 1px solid #F3F0EE;
+    margin-bottom: 30px;
+    th {
+        color: #A0A0A0;
+        text-align: left;
+        font-weight: 400;
+    }
+    th, td {
+        height: 55px;
+        padding: 10px 10px 10px 10px;
+        vertical-align: middle;
+        border-bottom: 1px solid #F3F0EE;
+        &:first-child {
+            padding-left: 26px;
+        }
+    }
+}
+@media (min-width: 1024px) {
+    table {
+        th, td {
+            font-size: 14px;
+            line-height: 17px;
+            &:first-child {
+                padding-left: 53px;
+            }
+        }
+    }
 }
