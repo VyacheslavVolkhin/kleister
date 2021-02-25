@@ -2560,7 +2560,7 @@ body {
     padding-right: 0;
   }
 }
-@media (max-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1023px) {
   .item-order {
     display: -webkit-box;
     display: -ms-flexbox;
