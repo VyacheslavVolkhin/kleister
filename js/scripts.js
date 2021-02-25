@@ -21,6 +21,32 @@ $(document).ready(function(){
 	};
 
 
+	//profile section toggle
+    $('.js-section-toggle-view').on('click', function() {
+        $(this).parents('.profile-section-wrap').removeClass('section-view');
+        return false;
+    })
+    $('.js-section-cancel').on('click', function() {
+        $(this).parents('.profile-section-wrap').addClass('section-view');
+        return false;
+    })
+    $('.js-section-save').on('click', function() {
+        $(this).parents('.profile-section-wrap').addClass('section-view');
+        return false;
+    })
+
+
+	//password view toggle
+    $('.js-btn-view-toggle').on('click', function() {
+        if ($(this).next('input').attr('type')=='text') {
+            $(this).next('input').attr('type', 'password');
+        } else {
+            $(this).next('input').attr('type', 'text');
+        }
+        return false;
+    })
+
+
 	//btn tgl
     $('.js-btn-tgl').on('click', function() {
         $(this).toggleClass('active');
