@@ -2822,8 +2822,39 @@
         padding: 6px 32px 14px 32px;
     }
 }
-.catalog-filter-wrap {
+.catalog-outer-wrap {
     position: relative;
+    .filter-action-title {
+        display: none;
+        background: var(--clr-main);
+        padding: 10px 20px 10px 50px;
+        position: fixed;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        font-size: 16px;
+        line-height: 20px;
+        height: 80px;
+        color: #fff;
+        align-items: center;
+        cursor: pointer;
+        &:before {
+            content: "";
+            display: block;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 50%;
+            left: 26px;
+            margin: -10px 0 0 -10px;
+            background: url(../img/icons/ico-arrow.svg) center no-repeat;
+            background-size: 12px auto;
+            .t-rotate(90deg);
+            filter: brightness(0) invert(1);
+        }
+    }
     .btn-action-ico.ico-filter {
         width: 57px;
         height: 57px;
@@ -2864,6 +2895,10 @@
             padding: 8px 0 0 0;
         }
     }
+}
+.catalog-filter-wrap {
+    position: relative;
+
 }
 .page-actions-box {
     background: #fff;
@@ -3444,6 +3479,41 @@
             max-width: 100%;
         }
     }
+    .catalog-outer-wrap {
+        &.filter-active {
+            .catalog-filter-wrap {
+                display: block;
+            }
+            .btn-action-ico {
+                &.ico-filter {
+                    display: none;
+                    &.button-visible {
+                        display: none !important;
+                    }
+                }
+            }
+        }
+        .btn-action-ico {
+            &.ico-filter {
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                left: auto;
+                z-index: 120;
+                display: none;
+                animation: fadein ease 0.2s;
+                &.button-visible {
+                    display: block;
+                }
+                .button-title {
+                    display: none;
+                }
+            }
+        }
+        .filter-action-title {
+            display: flex;
+        }
+    }
     .catalog-filter-wrap {
         display: none;
         animation: fadein ease 0.2s;
@@ -3453,54 +3523,11 @@
         bottom: 0;
         right: -1px;
         z-index: 101;
-        padding: 151px 0 0 0;
-        .btn-action-ico {
-            &.ico-filter {
-                position: fixed;
-                top: 71px;
-                left: -1px;
-                right: -1px;
-                z-index: 103;
-                background: var(--clr-main);
-                height: 80px;
-                line-height: 80px;
-                width: auto;
-                &:before {
-                    content: attr(data-title-mobile);
-                    font-size: 16px;
-                    color: #fff;
-                    text-align: left;
-                    background: none;
-                    padding: 0 0 0 52px;
-                }
-                &:after {
-                    width: 20px;
-                    height: 20px;
-                    top: 50%;
-                    left: 28px;
-                    right: auto;
-                    bottom: auto;
-                    margin: -10px 0 0 -10px;
-                    background: url(../img/icons/ico-arrow.svg) center no-repeat;
-                    background-size: auto 7px;
-                    opacity: 1;
-                    .t-rotate(90deg);
-                    filter: brightness(0) invert(1);
-                }
-                .button-title {
-                    display: none;
-                }
-                &:hover {
-                    background: var(--clr-main);
-                    &:before, &:after {
-                        opacity: 1;
-                    }
-                }
-            }
-        }
+        padding: 80px 0 0 0;
+        background: #fff;
     }
     .filter-box {
-        max-height: calc(100vh - 151px);
+        max-height: 100vh;
         overflow: auto;
         background: #fff;
         .filter-button {
@@ -4353,8 +4380,7 @@
         padding-top: 65px;
         position: relative;
     }
-    .catalog-filter-wrap {
-        position: static;
+    .catalog-outer-wrap {
         .btn-action-ico.ico-filter {
             left: auto;top: 0px;
             right: 10px;
@@ -4362,6 +4388,9 @@
                 display: none;
             }
         }
+    }
+    .catalog-filter-wrap {
+        position: static;
     }
     .page-top-box {
         .button-wrap {
