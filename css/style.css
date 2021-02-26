@@ -772,7 +772,7 @@ body {
           animation: fadein ease 0.2s;
 }
 .nav .menu-outer-wrap li.open > ul {
-  display: block;
+  /*display: block;*/
 }
 .nav .menu-outer-wrap li.open > a {
   color: var(--clr-second);
@@ -815,6 +815,9 @@ body {
   width: 100%;
 }
 @media (max-width: 1023px) {
+  .menu-show {
+    overflow: hidden;
+  }
   .header-main-panel .btn-action-ico.ico-fav:before,
   .header-main-panel .btn-action-ico.ico-fav.active:before,
   .header-main-panel .btn-action-ico.ico-fav-active:before {
@@ -929,6 +932,20 @@ body {
   }
 }
 @media (min-width: 1024px) {
+  .header-fixed .header {
+    height: 122px;
+  }
+  .header-fixed .header .header-main-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+  }
+  .header-fixed .nav {
+    position: fixed;
+    top: -41px;
+  }
   .header-top-panel .inner-wrap {
     height: 40px;
     padding-top: 0;
@@ -1063,12 +1080,17 @@ body {
     width: 244px;
     position: relative;
     padding-bottom: 50px;
-    min-height: 100%;
+    /*min-height: 100%;*/
+  }
+  .nav .menu-outer-wrap ul li.open > ul {
+    display: block !important;
   }
   .nav .menu-outer-wrap ul ul {
-    display: none;
-    -webkit-animation: fadein ease 0.2s;
-            animation: fadein ease 0.2s;
+    display: none !important;
+    -webkit-animation: fadeinslide ease 0.6s;
+            animation: fadeinslide ease 0.6s;
+    -webkit-transition: max-height ease 0.2s;
+    transition: max-height ease 0.2s;
     position: absolute;
     top: 0;
     left: 100%;
@@ -6477,6 +6499,11 @@ input[type="submit"] {
   color: #fff;
   text-decoration: none;
 }
+.btn.fancybox-button,
+button.fancybox-button,
+input[type="submit"].fancybox-button {
+  min-width: 0;
+}
 .btn.button-disabled,
 button.button-disabled,
 input[type="submit"].button-disabled,
@@ -8069,6 +8096,30 @@ body .ui-slider .ui-slider-handle {
   }
   to {
     opacity: 1;
+  }
+}
+@-webkit-keyframes fadeinslide {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+@keyframes fadeinslide {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
   }
 }
 .i {

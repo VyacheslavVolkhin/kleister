@@ -438,7 +438,7 @@ html, body {
         }
         li.open {
             &>ul {
-                display: block;
+                /*display: block;*/
             }
             &>a {
                 color: var(--clr-second);
@@ -484,6 +484,9 @@ html, body {
 	}
 }
 @media (max-width: 1023px) {
+    .menu-show {
+        overflow: hidden;
+    }
     .header-main-panel {
         .btn-action-ico {
             &.ico-fav,
@@ -605,6 +608,22 @@ html, body {
     }
 }
 @media (min-width: 1024px) {
+    .header-fixed {
+        .header {
+            height: 122px;
+            .header-main-panel {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                background: #fff;
+            }
+        }
+        .nav {
+            position: fixed;
+            top: -41px;
+        }
+    }
     .header-top-panel {
         .inner-wrap {
             height: 40px;
@@ -740,10 +759,14 @@ html, body {
                 width: 244px;
                 position: relative;
                 padding-bottom: 50px;
-                min-height: 100%;
+                /*min-height: 100%;*/
+                li.open>ul {
+                    display: block !important;
+                }
                 ul {
-                    display: none;
-                    animation: fadein ease 0.2s;
+                    display: none !important;
+                    animation: fadeinslide ease 0.6s;
+                    transition: max-height ease 0.2s;
                     position: absolute;
                     top: 0;
                     left: 100%;
