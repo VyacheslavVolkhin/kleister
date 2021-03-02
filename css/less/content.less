@@ -2708,6 +2708,26 @@
             padding: 0 6px;
             width: 77px;
         }
+        .item-photo {
+            &:not(.active) {
+                &:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background: fade(#FFA217, 70);
+                    transition: opacity ease 0.2s;
+                }
+                &:hover {
+                    &:after {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
     }
     .owl-nav, .owl-dots {
         display: none;
@@ -3496,14 +3516,18 @@
         .btn-action-ico {
             &.ico-filter {
                 position: fixed;
-                top: 10px;
+                top: 165px;
                 right: 10px;
                 left: auto;
                 z-index: 120;
-                display: none;
+                display: block;
                 animation: fadein ease 0.2s;
                 &.button-visible {
                     display: block;
+
+                    position: fixed;
+                    top: 10px;
+                    right: 10px;
                 }
                 .button-title {
                     display: none;
