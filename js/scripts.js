@@ -75,6 +75,9 @@ $(document).ready(function(){
         return false;
     })
 
+    //tooltip
+    $('.js-tooltip[title]').tooltip();
+
 
     //filter
     $('.js-filter-toggle').on('click', function() {
@@ -490,6 +493,54 @@ $(window).on('load', function () {
     $('.card-photos-wrap .slider-preview-wrap .item-photo').on('click', function() {
         let newPSlide = $(this).parent().attr('data-slide');
         slMain.trigger('to.owl.carousel', [newPSlide, 300, true]);
+        return false;
+    })
+
+
+    //popup calc
+    $('#popup-calc').dialog({
+        autoOpen: false,
+        modal: true,
+        resizable: false,
+        draggable: false,
+        width: 300,
+        show: { effect: "fade", duration: 400 },
+        hide: { effect: "fade", duration: 400 },
+        dialogClass: '',
+        title: '',
+        open: function() {
+            $('body').addClass('popup-open');
+        },
+        close: function() {
+            $('body').removeClass('popup-open');
+        }
+    })
+    $('.js-btn-popup-calc').on('click', function() {
+        $('#popup-calc').dialog('open');
+        return false;
+    })
+
+
+    //popup order
+    $('#popup-order').dialog({
+        autoOpen: false,
+        modal: true,
+        resizable: false,
+        draggable: false,
+        width: 300,
+        show: { effect: "fade", duration: 400 },
+        hide: { effect: "fade", duration: 400 },
+        dialogClass: 'popup-order',
+        title: '',
+        open: function() {
+            $('body').addClass('popup-open');
+        },
+        close: function() {
+            $('body').removeClass('popup-open');
+        }
+    })
+    $('.js-btn-popup-order').on('click', function() {
+        $('#popup-order').dialog('open');
         return false;
     })
 });

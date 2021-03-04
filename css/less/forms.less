@@ -966,6 +966,190 @@ input[type="submit"] {
 		background: #000000+#222;
 	}
 }
+.frm-popup {
+    .frm-section {
+        padding: 29px 30px 14px 49px;
+        border-bottom: 1px solid var(--clr-add-four);
+        position: relative;
+        display: block;
+        &:last-child {
+            border-bottom: none;
+        }
+        &.section-form {
+            padding-top: 24px;
+            padding-right: 48px;
+            padding-bottom: 32px;
+            padding-left: 42px;
+        }
+        &.section-order {
+            padding: 20px 48px 20px 42px;
+        }
+    }
+    .frm-field {
+        margin-bottom: 15px;
+        padding: 0 10px;
+        width: 100%;
+        &>label {
+            display: block;
+            font-size: 10px;
+            line-height: 12px;
+            margin-bottom: 10px;
+            &.lbl-light {
+                color: #797A7B;
+            }
+        }
+    }
+    .field-half {
+        width: 40%;
+        flex-shrink: 0;
+        &:first-child {
+            flex: 1;
+            width: auto;
+        }
+    }
+    .field-three {
+        width: auto;
+    }
+    .frm-row {
+        display: flex;
+        margin: 0 -10px;
+        justify-content: stretch;
+    }
+    .field-wrap {
+        display: flex;
+        align-items: center;
+    }
+    .field-total {
+        justify-content: space-between;
+        align-items: center;
+        .frm-select {
+            max-width: 130px;
+        }
+    }
+    .frm-select {
+        label {
+            font-size: 10px;
+            line-height: 12px;
+        }
+    }
+    .frm-counter {
+        width: 152px;
+    }
+    .section-total {
+        .frm-counter {
+            width: 118px;
+        }
+        .frm-field {
+            &:first-child {
+                flex: 1;
+            }
+        }
+    }
+    .elm-price {
+        height: 40px;
+        line-height: 40px;
+        font-size: 30px;
+        font-weight: bold;
+        color: var(--clr-att);
+        min-width: 170px;
+        &.price-second {
+            font-size: 18px;
+            font-weight: 600;
+            color: #000;
+            min-width: 80px;
+        }
+    }
+    .counter-info {
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 0 0 17px;
+        font-size: 14px;
+    }
+    .btn-action-ico {
+        &.ico-calc {
+            margin-left: 14px;
+        }
+    }
+    
+}
+.frm-sections-wrap {
+    border-bottom: 1px solid var(--clr-add-four);
+    .sections-block {
+        display: none;
+    }
+    .btn-section-toggle {
+        display: block;
+        font-size: 14px;
+        line-height: 20px;
+        color: var(--clr-second);
+        padding: 10px 20px;
+        text-align: center;
+        font-weight: 600;
+        transition: none;
+        &:before {
+            content: attr(data-show);
+        }
+        &:after {
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+            width: 20px;
+            height: 20px;
+            margin: 0 0 0 12px;
+            background: url(../img/icons/ico-calc.svg) center no-repeat;
+            background-size: 100% auto;
+        }
+        &.active {
+            border-bottom: 1px solid var(--clr-add-four);
+            &:after {display: none;}
+            &:before {
+                content: attr(data-hide);
+            }
+        }
+    }
+}
+.frm-field-result {
+    display: flex;
+    position: relative;
+    line-height: 1;
+    .field-source,
+    .field-result {
+        display: flex;
+        height: 38px;
+        border: 1px solid var(--clr-add-four);
+        padding: 0 16px;
+        font-size: 16px;
+        line-height: 16px;
+        white-space: nowrap;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    .field-result {
+        margin-left: 34px;
+        &:before {
+            content: "";
+            display: block;
+            width: 14px;
+            height: 7px;
+            border-top: 2px solid #000;
+            border-bottom: 2px solid #000;
+            position: absolute;
+            top: 50%;
+            left: -24px;
+            margin-top: -4px;
+        }
+    }
+    .elm-help {
+        margin-left: 5px;
+        width: 16px;
+        height: 16px;
+        &:before {
+            background-size: 100% auto;
+        }
+    }
+}
 .frm-row,
 .frm-field,
 .frm-row-submit {
@@ -1450,7 +1634,67 @@ input[type="submit"] {
     [placeholder]::-moz-placeholder {color: fade(#000, 50);}
     [placeholder]:-ms-input-placeholder {color: fade(#000, 50);}
 }
+.ui-dialog {
+    width: 590px !important;
+    left: 50% !important;
+    margin-left: -295px;
+}
 body {
+    .ui-widget-overlay {
+        background: fade(#fff, 80);
+        backdrop-filter: blur(4px);
+    }
+    .ui-dialog {
+    	padding: 0;
+    	background: #fff;
+        box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.15);
+    	.ui-dialog-titlebar {
+    		padding: 0;
+    		margin: 0;
+    		height: 0;
+    		font-size: 0;
+    		line-height: 0;
+    		.ui-dialog-title {
+    			display: none;
+    		}
+    		.ui-dialog-titlebar-close {
+    			padding: 0;
+    			margin: 0;
+    			background: none;
+    			border: none;
+    			box-shadow: none;
+    			border-radius: 0;
+    			position: absolute;
+    			z-index: 99;
+    			min-width: 0;
+    			top: 20px;right: 20px;
+    			width: 40px;height: 40px;
+    			&:before, &:after {
+    				content: "";
+    				display: block;
+    				width: 18px;height: 2px;
+                    background: #000;
+    				position: absolute;
+    				top: 50%;left: 50%;
+    				margin: -1px 0 0 -9px;
+    				.t-rotate(45deg);
+    			}
+    			&:before {
+    				.t-rotate(-45deg);
+    			}
+    		}
+    	}
+    	.ui-dialog-content {
+    		padding: 0;
+    	}
+    }
+    .ui-tooltip {
+        font-size: 12px;
+        line-height: 14px;
+        padding: 10px;
+        background: #fff;
+        box-shadow: 0 0 5px fade(#000, 10);
+    }
     .jq-selectbox.inp-second {
         vertical-align: middle;
         .jq-selectbox__dropdown {
@@ -1539,6 +1783,105 @@ body {
         font-size: 12px;
         label {
             padding-left: 32px;
+        }
+    }
+}
+@media (max-width: 639px) {
+    .ui-dialog {
+        width: 320px !important;
+        margin-left: -160px;
+    }
+    .frm-popup {
+        .frm-section {
+            padding-right: 15px;
+            &.section-form {
+                padding: 20px 20px 20px 20px;
+            }
+            &.section-order {
+                padding: 20px;
+            }
+        }
+        .frm-row {
+            flex-wrap: wrap;
+            position: relative;
+        }
+        .field-half {
+            width: 100%;
+            margin-bottom: 26px;
+            &:first-child {
+                width: 100%;
+                flex: inherit;
+            }
+        }
+        .field-total {
+            display: block;
+            .frm-select {
+                margin: 15px 0 0 0;
+                width: 100%;
+                max-width: 100%;
+                label {
+                    padding-top: 4px;
+                }
+            }
+        }
+        .frm-field-result {
+            position: relative;
+            padding: 0 0 56px 0;
+            .field-source {
+                height: 48px;
+            }
+            .field-result {
+                height: 48px;
+                margin: 0;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                &:before {
+                    display: none;
+                }
+            }
+        }
+        .field-three {
+            margin-bottom: 26px;
+            &:last-child {
+                margin-bottom: 0;
+                width: 100px;
+                position: absolute;
+                bottom: -20px;
+                right: 0;
+            }
+        }
+        .section-total {
+            padding-bottom: 25px;
+            .frm-counter {
+                width: 160px;
+            }
+        }
+        .elm-price {
+            height: 30px;
+            line-height: 30px;
+        }
+        .frm-counter {
+            width: 200px;
+            height: 48px;
+            padding: 0 53px;
+            .btn-action-ico {
+                width: 52px;
+                height: 46px;
+            }
+        }
+        input {
+            height: 46px;
+            font-size: 16px;
+            font-weight: 400;
+        }
+    }
+}
+@media (min-width: 640px) {
+    .ui-dialog {
+        &.popup-order {
+            width: 530px !important;
+            margin-left: -265px;
         }
     }
 }
