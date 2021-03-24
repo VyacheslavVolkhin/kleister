@@ -352,7 +352,6 @@ $(document).ready(function(){
                 let scrollActive = $(this).parents('.scroll-wrapper').find('.owl-item.active').length
                 let scrollCurrent = $(this).parents('.scroll-wrapper').find('.owl-item.active:first').index();
                 let scrollWidth = 100/(scrollSize/(scrollActive+scrollCurrent));
-                console.log(scrollSize + '+' + scrollActive + '+' + scrollWidth)
                 $(this).children('.scroll-track').width(scrollWidth+'%');
             })
         },
@@ -362,7 +361,6 @@ $(document).ready(function(){
                 let scrollActive = $(this).parents('.scroll-wrapper').find('.owl-item.active').length
                 let scrollCurrent = $(this).parents('.scroll-wrapper').find('.owl-item.active:first').index();
                 let scrollWidth = 100/(scrollSize/(scrollActive+scrollCurrent));
-                console.log(scrollSize + '+' + scrollActive + '+' + scrollWidth)
                 $(this).children('.scroll-track').width(scrollWidth+'%');
             })
         },
@@ -544,7 +542,7 @@ $(window).on('load', function () {
         return false;
     })
 });
-$(window).load(function() {
+$(window).on('load', function() {
     $('[data-fancybox]').fancybox({
         onComplete: function() {
             $('.fancybox-button--left').each(function() {
